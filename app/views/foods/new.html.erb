@@ -1,0 +1,19 @@
+<%= form_with model:@food, url: user_foods_path(@user) do |form| %>
+  <div class="input">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "your title...", required: true%>
+  </div>
+  <div class="input">
+    <%= form.label  :measurement_unit %>
+    <%= form.number_field :measurement_unit, placeholder: "your text...", required: true%>
+  </div>
+  <div class="input">
+    <%= form.label  :price %>
+    <%= form.number_field :price, placeholder: "your text...", required: true%>
+  </div>
+  <div class="input">
+    <%= form.label  :quantity %>
+    <%= form.number_field :quantity, placeholder: "your text...", required: true%>
+  </div>
+  <%=form.submit "create food" %>
+<%end%>
