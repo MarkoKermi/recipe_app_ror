@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
     @food = Food.where(user_id: @user.id)
   end
 
-  def new 
+  def new
     @user = current_user
     @food = Food.new
   end
@@ -22,12 +22,11 @@ class FoodsController < ApplicationController
     @food.destroy
     redirect_to user_foods_path
   end
-  
+
 
   private
 
   def post_food
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
-
 end

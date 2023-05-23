@@ -2,6 +2,7 @@
 <%= render "shared/sign" %>
 
 <div class="food">
+  <h2>Here is the list of all food in your catalogue</h2>
   <%= link_to "Add food", new_user_food_path(@user) %>
    <%if @food == [] %>
     <h2> you do not have any food in your catalogue, add new foods</h2>
@@ -10,7 +11,7 @@
     <h3><%= food.name %></h3>
     <p><%= food.measurement_unit %></p>
     <p><%= food.price %></p>
-    <%= button_to "delete", user_food_path(@user, food.id), method: :delete %>
+    <%= button_to "delete #{food.name}", user_food_path(@user, food.id), method: :delete %>
   <% end %>
   <%end%>
 </div>
