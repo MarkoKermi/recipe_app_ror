@@ -23,7 +23,6 @@ class FoodsController < ApplicationController
     redirect_to user_foods_path
   end
 
-
   private
 
   def post_food
