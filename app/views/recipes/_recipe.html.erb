@@ -1,0 +1,14 @@
+<article class="recipe"> 
+<h2> Test </h2>
+  <div>
+    <div>
+    <%= link_to recipe.name, recipe_path(recipe)%>
+    </div>
+    <div>
+        <%= button_to "Delete", recipe_path(recipe), method: :delete %>
+    </div>
+  </div>
+  <div>
+    <%# <%= recipe.description%> 
+  </div>
+</article>

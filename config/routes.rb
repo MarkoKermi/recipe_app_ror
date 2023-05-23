@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :foods
-    resources :recipes
+    resources :recipes, except: %i[edit update]
   end
+  resources :recipes, except: %i[edit update]
 end
