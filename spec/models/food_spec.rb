@@ -20,8 +20,8 @@ RSpec.describe Food, type: :model do
       expect(food).to_not be_valid
     end
 
-    it 'should be invalid, measurement_unit must be a number' do
-      food.measurement_unit = 'grams'
+    it 'should be invalid, measurement_unit must be present' do
+      food.measurement_unit = nil
       expect(food).to_not be_valid
     end
 
