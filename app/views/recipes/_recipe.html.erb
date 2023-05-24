@@ -1,14 +1,13 @@
-<article class="recipe"> 
-<h2> Test </h2>
-  <div>
-    <div>
-    <%= link_to recipe.name, recipe_path(recipe)%>
+<article class="recipe">
+  <%= link_to "add recipe", new_recipe_path, class: "add" %>
+  <h2>Here is a list of my recipes</h2>
+  <% recipes.each do |recipe|%>
+    <div class='recipe_box'>
+      <div class='recipe_name'>
+       <%= link_to "#{recipe.name}", recipe_path(recipe.id) %>
+        <%= button_to "remove #{recipe.name}", recipe_path(recipe.id), method: :delete %>
+      </div>
+      <p><%= recipe.description%></p>
     </div>
-    <div>
-        <%= button_to "Delete", recipe_path(recipe), method: :delete %>
-    </div>
-  </div>
-  <div>
-    <%# <%= recipe.description%> 
-  </div>
+  <%end%>
 </article>

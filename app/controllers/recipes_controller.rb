@@ -1,8 +1,10 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
 
+  
+
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(user_id: current_user.id)    
   end
 
   def new
@@ -10,12 +12,13 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @recipe = Recipe.find(params[:id])
   end
 
   def create
     @user = current_user
-    @recipe = @user.recipe.new(params[:recipe])
+    @recipe = @user.recipes.new(params[:recipe])
 
     if @recipe.save
       redirect_to recipe_path, notice: 'The recipe was succesfuly created'
@@ -28,6 +31,16 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipe_path, notice: 'The recipe was deleted'
+  rescue ActiveRecord::RecordNotFound
+    redirect_to recipes_path, alert: 'The recipe was not deleted'
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    redirect_to recipe_path(@recipe), notice: 'The recipe was updated'
+  rescue ActiveRecord::RecordNotFound
+    redirect_to recipe_path(@recipe), alert: 'The recipe was not updated'
   end
 
   private

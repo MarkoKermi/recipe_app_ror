@@ -7,4 +7,13 @@ class Recipe < ApplicationRecord
   validates :cooking_time, presence: true
   validates :description, presence: true
   validates :public, inclusion: { in: [true, false] }
+
+  def show_description?(current_user)
+    public || user.admin? || user == current_user
+  end
+
+  def owner?(current_user)
+    user == current_user || user.admin?
+  end
+  
 end
