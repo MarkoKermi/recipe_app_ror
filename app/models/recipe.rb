@@ -15,5 +15,4 @@ class Recipe < ApplicationRecord
   def owner?(current_user)
     user == current_user || user.admin?
   end
-  
 end
