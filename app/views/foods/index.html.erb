@@ -3,22 +3,10 @@
 
 <section class="food">
   <h2>Here is the list of all food in your catalogue</h2>
-  <%= link_to "Add food", new_user_food_path(@user), class: "add" %>
-   <%
-=begin%>
- <%if @food == [] %> 
-<%
-=end%>
-    <%
-=begin%>
- <h2> you do not have any food in your catalogue, add new foods</h2> 
-<%
-=end%>
-  <%
-=begin%>
- <%else%> 
-<%
-=end%>
+   <%= link_to "Add food", new_user_food_path(@user), class:'add' %> 
+  <%if @food == [] %>
+    <h2> you do not have any food in your catalogue, add new foods</h2>
+  <%else%>
   <table>
      <thead>
       <tr>
@@ -39,9 +27,5 @@
       </tbody>
     <% end %>
     </table> 
-  <%
-=begin%>
- <%end%> 
-<%
-=end%>
+  <%end%>
 </section>

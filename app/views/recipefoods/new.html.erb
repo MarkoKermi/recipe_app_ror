@@ -1,6 +1,9 @@
+<%= render partial:"shared/navbar", locals:{user: @user}%>
+
 <div class="form ff">
 <h2>Add new Ingredients</h2>
     <%= form_with model: @recipefood, url: recipe_recipefoods_path(recipe_id: @recipe) do |form| %>
+      <p class='bold'> Food Must Be Present In your catalogue Of Foods</p>
       <div class="input">
         <%= form.label :quantity %>
         <%= form.text_field :quantity, placeholder: 'Enter quantity', required: true, class: 'form-input' %>

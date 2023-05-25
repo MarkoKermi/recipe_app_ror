@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     collection do
       get 'public'
     end
+    collection do
+      get 'shoppinglist'
+    end
   end
 end

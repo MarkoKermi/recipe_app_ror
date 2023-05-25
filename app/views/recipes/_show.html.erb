@@ -3,39 +3,37 @@
   <div class="switch">
     <div class='recipe_desc'>
       <p>
-        preparation time: <%=@recipe.preparation_time%>
+        preparation time: <span class="bold"><%=@recipe.preparation_time%>
         <%if @recipe.preparation_time > 1%> 
           hours
         <%else%>
           hour
         <%end%>
+        </span>
       </p>
        <p>
-        cooking time: <%=@recipe.cooking_time%>
+        cooking time: <span class="bold"> <%=@recipe.cooking_time%>
         <%if @recipe.cooking_time > 1%> 
           hours
         <%else%>
           hour
         <%end%>
+        </span>
       </p>
       <p><%=@recipe.description%></p>
     </div>
     <%if @recipe.user == @user%>
     <div class='toggle'>
       <p>public</p>
-      <label class="toggle-switch">
-        <%
-=begin%>
- <input type="checkbox" id="toggle" <%if @recipe.public? checked%> /> 
-<%
-=end%>
-        <span class="slider"></span>
-     </label>
+    <label class="toggle-switch">
+      <input type="checkbox" id="toggle" <%= 'checked' if @recipe.public? %>>
+       <span class="slider"></span>
+    </label>
    </div>
    <%end%>
   </div>
   <div class='generate'>
-    <%= link_to "generate list", recipe_recipefoods_path(recipe_id: @recipe) %>
+    <%= link_to "generate list", shoppinglist_recipes_path(recipe_id: @recipe) %>
     <%= link_to "Add ingredient", new_recipe_recipefood_path(recipe_id: @recipe) %>
   </div>
     <%if @recifoods == []%>

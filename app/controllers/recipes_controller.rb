@@ -40,6 +40,11 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true)
   end
 
+  def shoppinglist
+    @user = current_user
+    @recipe = Recipe.includes(:foods).find(params[:recipe_id])
+  end
+
   private
 
   def recipe_params
