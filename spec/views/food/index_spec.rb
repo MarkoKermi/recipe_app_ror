@@ -16,7 +16,7 @@ RSpec.describe 'food', type: :system do
     end
 
     it 'have content, Here is the list of all food in your catalogue' do
-      expect(page).to have_content 'Here is the list of all food in your catalogue'
+      expect(page).to have_content 'Here Is The List Of All Food In Your Catalogue'
     end
 
     it 'should display the first food created by the user' do

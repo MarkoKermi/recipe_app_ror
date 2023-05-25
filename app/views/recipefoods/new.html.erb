@@ -1,0 +1,15 @@
+<div class="form ff">
+<h2>Add new Ingredients</h2>
+    <%= form_with model: @recipefood, url: recipe_recipefoods_path(recipe_id: @recipe) do |form| %>
+      <div class="input">
+        <%= form.label :quantity %>
+        <%= form.text_field :quantity, placeholder: 'Enter quantity', required: true, class: 'form-input' %>
+      </div>
+      <div class="input">
+        <%= form.label :food %>
+        <%= form.text_field :food, placeholder: 'Enter food...', required: true, class: 'form-text-area' %>
+      </div>
+    
+      <%= form.submit "Create Recipe", class: "submit" %>
+    <% end %>
+ </div>

@@ -2,32 +2,42 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recipes = Recipe.all
+    @user = current_user
+    @recipes = Recipe.where(user_id: current_user.id)
   end
 
   def new
+    @user = current_user
     @recipe = Recipe.new
-  end
-
-  def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def create
     @user = current_user
-    @recipe = @user.recipe.new(params[:recipe])
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = @user.id
 
     if @recipe.save
-      redirect_to recipe_path, notice: 'The recipe was succesfuly created'
+      redirect_to user_recipes_path, notice: 'The recipe was succesfuly created'
     else
       render :new, alert: 'The recipe was not created'
     end
   end
 
+  def show
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
+    @recifoods = RecipeFood.includes(:food).where(recipe_id: params[:id])
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipe_path, notice: 'The recipe was deleted'
+    redirect_to user_recipes_path(current_user.id), notice: 'The recipe was deleted'
+  end
+
+  def public
+    @user = current_user
+    @recipes = Recipe.where(public: true)
   end
 
   private

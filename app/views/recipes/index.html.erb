@@ -1,2 +1,4 @@
-<%= render partial: 'recipe', locals: {recipe: @recipes} %>
- <%# <h2>Hello welcome to recipe web</h2> %>
+<%= render partial: 'shared/navbar', locals: {user: @user} %>
+<section>
+<%= render partial: 'recipe', locals: {recipes: @recipes, user: @user} %>
+<section>
