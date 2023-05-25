@@ -16,7 +16,6 @@ RSpec.describe 'Recipe', type: :system do
       @recipe_foodtwo = RecipeFood.create(food_id: @foodtwo.id, quantity: 30, recipe_id: @recipe.id)
       @recipe_foodthree = RecipeFood.create(food_id: @foodthree.id, quantity: 40, recipe_id: @recipe.id)
 
-
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
       click_on 'Log in'
