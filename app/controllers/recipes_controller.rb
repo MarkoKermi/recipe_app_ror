@@ -42,7 +42,7 @@ class RecipesController < ApplicationController
 
   def shoppinglist
     @user = current_user
-    @recipe = Recipe.includes(:foods).find(params[:recipe_id])
+    @recipe = Recipe.includes(:foods).find(params[:id])
   end
 
   private

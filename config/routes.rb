@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   root "foods#index"
 
   resources :users do
-    resources :foods
+    resources :foods, except: %i[edit update]
     resources :recipes, except: %i[edit update] 
   end
   resources :recipes, except: %i[edit update] do
-    resources :recipefoods
+    resources :recipefoods, except: %i[edit update]
     collection do
       get 'public'
     end
-    collection do
+    member do
       get 'shoppinglist'
     end
   end

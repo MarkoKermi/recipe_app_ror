@@ -5,7 +5,7 @@
       <h2>you have no food ingredients yet, click on "Add ingredient" to add to the list</h2>
     <%else%>
       <div class="amount">
-        <p>Amount of food to buy: <span class='bold'> $<%=@recipe.foods.length%> </span></p>
+        <p>Amount of food to buy: <span class='bold'> <%=@recipe.foods.length%> </span></p>
         <p>Total value of food needed: <span class='bold'> $<%=@recipe.foods.sum(:price)%> </span></p> 
       </div>
 
@@ -17,12 +17,12 @@
             <th> value </th>
           </tr>
         </thead>
-        <%@recipe.foods.each do |e|%>
+        <%@recipe.recipe_foods.each do |e|%>
             <tbody>
               <tr>
-                <td><%=e.name%></td>
+                <td><%=e.food.name%></td>
                 <td><%=e.quantity%></td>
-                <td><%= e.quantity * e.price %></td>
+                <td>$<%= e.quantity * e.food.price %></td>
               <tr>
           </tbody>
         <%end%>

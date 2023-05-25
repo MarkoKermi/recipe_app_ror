@@ -33,7 +33,7 @@
    <%end%>
   </div>
   <div class='generate'>
-    <%= link_to "generate list", shoppinglist_recipes_path(recipe_id: @recipe) %>
+    <%= link_to "generate list", shoppinglist_recipe_path(@recipe) %>
     <%= link_to "Add ingredient", new_recipe_recipefood_path(recipe_id: @recipe) %>
   </div>
     <%if @recifoods == []%>
@@ -52,8 +52,8 @@
             <tbody>
               <tr>
                 <td><%=e.food.name%></td>
-                <td><%=e.quantity%></td>
-                <td><%= e.quantity * e.food.price %></td>
+                <td><%=e.quantity%><%=e.food.measurement_unit%></td>
+                <td>$<%= e.quantity * e.food.price %></td>
                 <td><%= button_to "modify remove", recipe_recipefood_path(@recipe, e.id), method: :delete %></td>
               <tr>
           </tbody>
