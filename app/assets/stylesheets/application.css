@@ -33,6 +33,7 @@ a {
   left: 0;
   right: 0;
   top: 0;
+  z-index: 99;
 }
 
 .nav h1 {
@@ -82,7 +83,6 @@ a {
 
 .recipe_name {
   width: 40%;
-  text-align: center;
 }
 
 .recipe_box p {

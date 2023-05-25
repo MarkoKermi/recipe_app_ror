@@ -9,8 +9,8 @@
     <%= form.text_field :name, placeholder: "name of the food...", required: true%>
   </div>
   <div class="input">
-    <%= form.label  :measurement_unit %>
-    <%= form.text_field :measurement_unit, placeholder: "Enter unit...", required: true%>
+        <%= form.label :measurement_unit %>
+        <%= form.select :measurement_unit, options_for_select(['units', 'grams', 'kg', 'pounds']), prompt: 'Select a category' %>
   </div>
   <div class="input">
     <%= form.label  :price %>
