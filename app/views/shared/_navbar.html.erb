@@ -1,0 +1,11 @@
+<nav class= "nav">
+  <h1>FOOD & RECIPES </h1>
+  <div class="links">
+    <ul class="link">
+       <li><%= link_to "Food", user_foods_path(user) %></li>
+      <li><%= link_to "Recipe", user_recipes_path(user) %></li>
+      <li><%= link_to "public recipe", public_recipes_path %></li>
+    </ul>
+    <%= render "shared/sign" %>
+  </div>
+</nav>

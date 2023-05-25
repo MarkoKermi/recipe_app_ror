@@ -10,6 +10,15 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :foods
-    resources :recipes
+    resources :recipes, except: %i[edit update] 
+  end
+  resources :recipes, except: %i[edit update] do
+    resources :recipefoods
+    collection do
+      get 'public'
+    end
+    collection do
+      get 'shoppinglist'
+    end
   end
 end

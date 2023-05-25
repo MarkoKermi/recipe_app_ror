@@ -1,15 +1,375 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Barlow:wght@200;300;400;500&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  padding: 1rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #ffff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(167, 166, 166, 0.467);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.nav h1 {
+  font-size: 15px;
+  font-style: italic;
+  background-color: rgb(0, 200, 255);
+  color: #ffff;
+  padding: 1rem;
+}
+
+.links,
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.link li {
+  margin-right: 10px;
+  border-right: 2px solid rgb(0, 200, 255);
+  padding: 10px;
+  text-align: center;
+}
+
+.link li:last-child {
+  border-right: none;
+}
+
+.add {
+  position: absolute;
+  top: 12rem;
+  right: 20px;
+  background-color: rgb(254, 92, 92);
+  padding: 0.8rem 1.5rem;
+  border: none;
+}
+
+.recipe_box {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid rgb(254, 92, 92);
+  border-radius: 8px;
+}
+
+.recipe_name {
+  width: 40%;
+  text-align: center;
+}
+
+.recipe_box p {
+  line-height: 30px;
+}
+
+.recipe_name a {
+  color: rgb(41, 40, 40);
+}
+
+.recipe_name button {
+  margin: 10px 0;
+  background-color: rgb(254, 92, 92);
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  color: #fff;
+}
+
+.recipe_show {
+  width: 60%;
+  margin: auto;
+}
+
+.switch {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: auto;
+  border: 1px solid rgb(254, 92, 92);
+}
+
+.recipe_show h2 {
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+
+.recipe_desc {
+  width: 80%;
+}
+
+.recipe_desc p {
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+
+.generate {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.generate a {
+  color: rgb(0, 200, 255);
+}
+
+.input select {
+  padding: 1rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.shoppinglist {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.shoppinglist h2 {
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+
+.shoppinglist .amount {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  a {
+    font-size: 23px;
+  }
+
+  .nav h1 {
+    font-size: 28px;
+  }
+
+  .nav {
+    padding: 1rem 4rem;
+  }
+
+  .link {
+    margin-right: 3rem;
+  }
+
+  td button {
+    font-size: 23px;
+    padding: 0.5rem;
+    border: none;
+    color: rgb(254, 92, 92);
+  }
+
+  .links button {
+    font-size: 20px;
+    background-color: rgb(0, 200, 255);
+    outline: none;
+    border-radius: 10px;
+    padding: 1rem;
+    border: none;
+    color: #ffff;
+  }
+
+  /******************** food styles ********************/
+
+  section {
+    padding-top: 8rem;
+  }
+
+  .food h2 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+    margin: 10px 0;
+    text-transform: capitalize;
+  }
+
+  .add {
+    top: 8rem;
+    color: #fff;
+  }
+
+  table {
+    margin: 2rem auto;
+  }
+
+  td,
+  th {
+    padding: 1.2rem;
+    border-bottom: 1px solid rgb(0, 200, 255);
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 23px;
+  }
+
+  .form {
+    width: 70%;
+    margin: auto;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .input label {
+    font-size: 23px;
+  }
+
+  .input input {
+    padding: 0.5rem;
+    font-size: 23px;
+  }
+
+  .input textarea {
+    padding: 10px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+  }
+
+  .submit {
+    padding: 0.5rem;
+    font-size: 20px;
+    background-color: rgba(73, 255, 73, 0.901);
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+  }
+
+  .ff {
+    padding-top: 8rem;
+  }
+
+  .ff h2 {
+    margin: 1rem 0;
+  }
+
+  /******************* login& registration **************/
+  .submit input {
+    background: none;
+    font-size: 23px;
+    border: none;
+    outline: none;
+    color: #ffff;
+  }
+
+  .form a {
+    color: rgb(41, 40, 40);
+  }
+
+  /******************* public *********************/
+
+  .public {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+  }
+
+  .public_box {
+    border: 2px solid rgb(0, 200, 255);
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem;
+    margin: 1rem 0;
+  }
+
+  .public a {
+    color: rgb(49, 49, 49);
+    font-size: 32px;
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+
+  .public p {
+    font-size: 25px;
+    text-transform: capitalize;
+    margin: 1rem 0;
+  }
+
+  .host {
+    margin-right: 8rem;
+  }
+}
+
+/* Toggle switch styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide the default checkbox input */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Styling for the slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Change the background color of the slider when toggled */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Change the position of the slider when toggled on */
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+/* Move the slider to the right when toggled on */
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
