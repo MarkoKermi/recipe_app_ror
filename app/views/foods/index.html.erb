@@ -1,0 +1,31 @@
+
+<%= render partial: 'shared/navbar', locals: {user: @user} %>
+
+<section class="food">
+  <h2>Here is the list of all food in your catalogue</h2>
+   <%= link_to "Add food", new_user_food_path(@user), class:'add' %> 
+  <%if @food == [] %>
+    <h2> you do not have any food in your catalogue, add new foods</h2>
+  <%else%>
+  <table>
+     <thead>
+      <tr>
+        <th>food</th>
+        <th>measurement unit</th>
+        <th> unit price </th>
+        <th> Action </th>
+      </tr>
+      </thead>
+    <% @food.each do |food| %>
+      <tbody>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td>$<%= food.price %> </td>
+          <td> <%=button_to "delete #{food.name}", user_food_path(@user, food.id), method: :delete %></td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table> 
+  <%end%>
+</section>

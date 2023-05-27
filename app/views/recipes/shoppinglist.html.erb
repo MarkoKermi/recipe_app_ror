@@ -1,0 +1,31 @@
+<%= render partial: "shared/navbar", locals:{user: @user} %>
+<section class= "shoppinglist">
+  <h2>shopping list</h2>
+  <%if @recipe.foods == []%>
+      <h2>you have no food ingredients yet, click on "Add ingredient" to add to the list</h2>
+    <%else%>
+      <div class="amount">
+        <p>Amount of food to buy: <span class='bold'> <%=@recipe.foods.length%> </span></p>
+        <p>Total value of food needed: <span class='bold'> $<%=@recipe.foods.sum(:price)%> </span></p> 
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th> food </th>
+            <th> quantity </th>
+            <th> value </th>
+          </tr>
+        </thead>
+        <%@recipe.recipe_foods.each do |e|%>
+            <tbody>
+              <tr>
+                <td><%=e.food.name%></td>
+                <td><%=e.quantity%></td>
+                <td>$<%= e.quantity * e.food.price %></td>
+              <tr>
+          </tbody>
+        <%end%>
+      </table>
+    <%end%>
+</section>

@@ -1,0 +1,25 @@
+
+<%= render partial: "shared/navbar", locals: {user: @user}  %>
+<div class="form ff">
+<h2>Add new food</h2>
+
+<%= form_with model:@food, url: user_foods_path(@user) do |form| %>
+  <div class="input">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "name of the food...", required: true%>
+  </div>
+  <div class="input">
+        <%= form.label :measurement_unit %>
+        <%= form.select :measurement_unit, options_for_select(['units', 'grams', 'kg', 'pounds']), prompt: 'Select a category' %>
+  </div>
+  <div class="input">
+    <%= form.label  :price %>
+    <%= form.number_field :price, placeholder: "Enter food price...", required: true%>
+  </div>
+  <div class="input">
+    <%= form.label  :quantity %>
+    <%= form.number_field :quantity, placeholder: "Enter quantity value...", required: true%>
+  </div>
+  <%=form.submit "create food", class: "submit"%>
+<%end%>
+</div>
